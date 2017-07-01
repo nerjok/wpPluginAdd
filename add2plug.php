@@ -36,10 +36,10 @@ register_deactivation_hook(__FILE__, 'testToRemove');
 	}	
 
 
-   /**
-   * 
-   * @return functions to register, controll widget itself
-   */	
+/**
+ * 
+ * @return functions to register, controll widget itself
+ */	
 	function addWidget()
 	{
 		wp_register_sidebar_widget(
@@ -56,9 +56,9 @@ register_deactivation_hook(__FILE__, 'testToRemove');
 	add_action( 'admin_init', 'addParserAdmin' );
 
 
-	/**
-	 * add top level menu to admin panel
-	 */
+/**
+ * add top level menu to admin panel
+ */
 	function addParser_admin_page() {
 	 // add top level menu page
 	 add_menu_page(
@@ -70,9 +70,6 @@ register_deactivation_hook(__FILE__, 'testToRemove');
 	 );
 	}
 	 
-	/**
-	 * register menu page
-	 */
-	add_action( 'admin_menu', 'addParser_admin_page' );
+ add_action( 'admin_menu', 'addParser_admin_page' );
 
 
