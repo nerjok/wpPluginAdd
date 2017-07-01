@@ -57,7 +57,7 @@ register_deactivation_hook(__FILE__, 'testToRemove');
 
 
 	/**
-	 * top level menu
+	 * add top level menu to admin panel
 	 */
 	function addParser_admin_page() {
 	 // add top level menu page
