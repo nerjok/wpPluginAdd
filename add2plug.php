@@ -1,13 +1,16 @@
 <?php
-/**
-*
-Plugin Name: addParser
-Plugin URI: http://wordpress.org
-Description: plugin parses job advertisments and show optional count
-Author: nerjok
-Version: 1.0
-*/
+ /**
+ * Plugin Name: addParser
+ * Plugin URI: http://wordpress.org
+ * Description: plugin parses job advertisments and show optional count
+ * Text Domain: add2plug
+ * Domain Path: /languages
+ * Author: nerjok
+ * Version: 1.0
+ */
 		include_once 'include/addFunctions.php';
+		include_once 'include/admin.php';
+
 
  	define(RSSFEED, 'rssWidgetId');
 
@@ -34,26 +37,6 @@ register_deactivation_hook(__FILE__, 'testToRemove');
 
 	}	
 
-/**
- * 
- * @return admin panel customization, add menu item
- */
-	if (is_admin()):
-	
-	add_action('admin_menu', 'adminPanel');
-	
-	function adminPanel()
-	{
-		add_options_page('Edit add\s links', 'Edit add\'s', 'administrator', 'ads link', 'addEdit');
-	}
-	endif;
-	
-	function addEdit()
-	{
-		
-		include_once 'include/admin.php';
-	}
-
 
    /**
    * 
@@ -71,4 +54,27 @@ register_deactivation_hook(__FILE__, 'testToRemove');
 	}
 	
 	add_action( 'plugins_loaded', 'addWidget');
-	
+
+	add_action( 'admin_init', 'addParserAdmin' );
+
+
+	/**
+	 * top level menu
+	 */
+	function addParser_admin_page() {
+	 // add top level menu page
+	 add_menu_page(
+	 'Add Parser admin',
+	 'AddParser',
+	 'manage_options',
+	 'add2plug',
+	 'add2plug_admin_page'
+	 );
+	}
+	 
+	/**
+	 * register menu page
+	 */
+	add_action( 'admin_menu', 'addParser_admin_page' );
+
+
