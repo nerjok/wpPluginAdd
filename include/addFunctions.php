@@ -1,5 +1,9 @@
 <?php
-
+ /**
+  * @param here we get url and num count from settings
+  * 
+  * @return  print data
+  */
 
 	function addsParsing($count = 2, $url = 'http://darbo.lt/darbas/')
     {
@@ -44,7 +48,12 @@
 
     }
 	
-     function getAddFile($url)
+ /**
+ * @param file url
+ *
+ * @return string data 
+ */
+ function getAddFile($url)
     {
             $ch = curl_init($url);
 
@@ -64,9 +73,11 @@
 
     }
 
-    //rss settings panel
-	function addSetings()
-	{
+ /**
+  * @return settings
+  */
+ function addSetings()
+ {
 			$options = get_option(RSSFEED);
 		  if (!is_array($options)) {
 			$options = array();
