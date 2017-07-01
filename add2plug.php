@@ -24,8 +24,6 @@ register_deactivation_hook(__FILE__, 'testToRemove');
 
 	function testToInstall()
 	{		
-
-		add_option('testfield');
 		
 		add_option(RSSFEED);
 	}
@@ -33,7 +31,7 @@ register_deactivation_hook(__FILE__, 'testToRemove');
 	function testToRemove()
 	{	
 
-		delete_option("testfield");
+		delete_option(RSSFEED);
 
 	}	
 
